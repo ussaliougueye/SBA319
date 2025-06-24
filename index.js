@@ -4,6 +4,7 @@ const mongoose = require("mongoose")
 //import mongoose from "mongoose";
 
 const userRoutes = require('./routes/userRoutes');
+const freindsRoutes = require('./routes/freindsRoutes');
 //import userRoutes from './routes/userRoutes'
 
 //import 'dotenv/config'
@@ -17,6 +18,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api/user', userRoutes);
+app.use('/api/freinds', freindsRoutes);
 
 
 // Connect to MongoDB

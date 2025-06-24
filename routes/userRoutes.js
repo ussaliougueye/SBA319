@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
+const userRouter = express.Router();
 const User = require('../models/loginInfo');
 
 // Create new user
-router.post('/post', async (req, res) => {
+userRouter.post('/post', async (req, res) => {
   try {
     const newUser = new User(req.body);
     const savedUser = await newUser.save();
@@ -14,7 +14,7 @@ router.post('/post', async (req, res) => {
 });
 
 // Get all users
-router.get('/showAll', async (req, res) => {
+userRouter.get('/showAll', async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -24,7 +24,7 @@ router.get('/showAll', async (req, res) => {
 });
 
 // Get user by ID
-router.get('/:id', async (req, res) => {
+userRouter.get('/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: 'User not found' });
@@ -35,7 +35,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update user
-router.put('/:id', async (req, res) => {
+userRouter.put('/:id', async (req, res) => {
   try {
     const updated = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updated) return res.status(404).json({ message: 'User not found' });
@@ -46,7 +46,7 @@ router.put('/:id', async (req, res) => {
 });
 
 // Delete user
-router.delete('/:id', async (req, res) => {
+userRouter.delete('/:id', async (req, res) => {
   try {
     const deleted = await User.findByIdAndDelete(req.params.id);
     if (!deleted) return res.status(404).json({ message: 'User not found' });
@@ -56,4 +56,4 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-module.exports = router;
+module.exports = userRouter;
