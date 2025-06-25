@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 
 const userRoutes = require('./routes/userRoutes');
 const freindsRoutes = require('./routes/freindsRoutes');
+const pubRouter = require("./routes/pubRoutes");
 //import userRoutes from './routes/userRoutes'
 
 //import 'dotenv/config'
@@ -19,6 +20,7 @@ app.use(express.json());
 // Routes
 app.use('/api/user', userRoutes);
 app.use('/api/freinds', freindsRoutes);
+app.use('/api/pub', pubRouter);
 
 
 // Connect to MongoDB
