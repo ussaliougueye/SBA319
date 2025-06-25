@@ -9,6 +9,8 @@ SBA319/
 │
 ├── routes/
 │   ├── userRoutes.js
+|   ├── friendRouter
+|   ├── pubRouter
 │
 ├── controllers/
 │   ├── userController.js
